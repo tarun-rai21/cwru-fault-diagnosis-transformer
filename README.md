@@ -2,8 +2,6 @@
 
 End-to-end bearing fault classification on the Case Western Reserve University (CWRU) dataset using vibration signal processing, machine learning, and deep learning. This repository focuses on a reproducible benchmarking pipeline, modular project structure, and robustness evaluation under changing operating conditions.
 
-![Project Architecture](assets/project_architecture.svg)
-
 ## Overview
 
 Rolling bearing faults are one of the most important failure sources in rotating machinery, and vibration analysis is a widely used non-intrusive approach for predictive maintenance and condition monitoring.[web:17][web:3] The CWRU Bearing Data Center dataset is a standard benchmark for this problem because it provides normal and faulty bearing recordings with documented operating conditions, vibration channels, and MATLAB-format files.[web:17][web:20][web:3]
@@ -13,6 +11,8 @@ This project builds a complete fault diagnosis pipeline on top of that dataset w
 - Reproducible and leakage-safe preprocessing.
 - Fair benchmarking across ML and DL model families.
 - Robustness testing through cross-load generalization.
+
+![Project Architecture](assets/project_architecture.svg)
 
 ## Project Objective
 
