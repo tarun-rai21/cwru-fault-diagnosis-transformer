@@ -2,7 +2,7 @@
 
 End-to-end bearing fault classification on the Case Western Reserve University (CWRU) dataset using vibration signal processing, machine learning, and deep learning. This repository focuses on a reproducible benchmarking pipeline, modular project structure, and robustness evaluation under changing operating conditions.
 
-![Project Architecture](./project_architecture.svg)
+![Project Architecture](assets/project_architecture.svg)
 
 ## Overview
 
@@ -119,7 +119,8 @@ This is a better first improvement than adding arbitrary architectural complexit
 ```text
 cwru-bearing-fault-diagnosis/
 ├── README.md
-├── project_architecture.svg
+├── assets/
+│   ├── project_architecture.svg
 ├── requirements.txt
 ├── .gitignore
 ├── configs/
