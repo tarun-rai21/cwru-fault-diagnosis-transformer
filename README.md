@@ -4,7 +4,7 @@ End-to-end bearing fault classification on the Case Western Reserve University (
 
 ## Overview
 
-Rolling bearing faults are one of the most important failure sources in rotating machinery, and vibration analysis is a widely used non-intrusive approach for predictive maintenance and condition monitoring.[web:17][web:3] The CWRU Bearing Data Center dataset is a standard benchmark for this problem because it provides normal and faulty bearing recordings with documented operating conditions, vibration channels, and MATLAB-format files.[web:17][web:20][web:3]
+Rolling bearing faults are one of the most important failure sources in rotating machinery, and vibration analysis is a widely used non-intrusive approach for predictive maintenance and condition monitoring.[web:17][web:3] The CWRU Bearing Data Center dataset is a standard benchmark for this problem because it provides normal and faulty bearing recordings with documented operating conditions, vibration channels, and MATLAB-format files.
 
 This project builds a complete fault diagnosis pipeline on top of that dataset with three priorities:
 
@@ -16,12 +16,12 @@ This project builds a complete fault diagnosis pipeline on top of that dataset w
 
 ## Project Objective
 
-The main objective is to build a four-class fault classification system on a controlled subset of the CWRU dataset and compare multiple model families under the same preprocessing and evaluation setup.[web:3][web:12]
+The main objective is to build a four-class fault classification system on a controlled subset of the CWRU dataset and compare multiple model families under the same preprocessing and evaluation setup.
 
 ### Version 1 scope
 
-- Sensor channel: Drive End (DE) only.[web:20][web:7]
-- Sampling rate: 12 kHz only.[web:20][web:7]
+- Sensor channel: Drive End (DE) only.
+- Sampling rate: 12 kHz only.
 - Task: 4-class classification.
 - Classes:
   - `normal`
@@ -32,22 +32,22 @@ The main objective is to build a four-class fault classification system on a con
 - Window overlap: 50%.
 - Main improvement experiment: Cross-load robustness.
 
-This restricted scope is intentional. The original dataset includes multiple channels and multiple sampling regimes, and mixing everything too early weakens both implementation quality and result interpretation.[web:20][web:7]
+This restricted scope is intentional. The original dataset includes multiple channels and multiple sampling regimes, and mixing everything too early weakens both implementation quality and result interpretation.
 
 ## Dataset
 
-This repository uses the **Case Western Reserve University Bearing Data Center** dataset.[web:17][web:20]
+This repository uses the **Case Western Reserve University Bearing Data Center** dataset.
 
 ### Why CWRU
 
-The dataset contains vibration recordings for normal and faulty bearings collected on a motor test rig, and the public data files are distributed in MATLAB format.[web:17][web:20][web:3] Each file contains drive-end and fan-end vibration data, and the dataset includes different operating loads, which makes it useful for both baseline classification and robustness studies.[web:20][web:7]
+The dataset contains vibration recordings for normal and faulty bearings collected on a motor test rig, and the public data files are distributed in MATLAB format.[web:17][web:20][web:3] Each file contains drive-end and fan-end vibration data, and the dataset includes different operating loads, which makes it useful for both baseline classification and robustness studies.
 
 ### Dataset subset used here
 
 To keep the benchmark controlled and reproducible, version 1 uses:
 
-- 12 kHz recordings only.[web:20]
-- Drive-end vibration only.[web:20]
+- 12 kHz recordings only.
+- Drive-end vibration only.
 - Four fault-type classes only.
 - File-level splitting before windowing.
 
@@ -84,7 +84,7 @@ The project follows this workflow:
 10. Run a cross-load robustness benchmark.
 11. Aggregate predictions for inference on unseen recordings.
 
-The split-before-windowing rule is critical because sliding-window leakage can make fault diagnosis benchmarks look much better than they really are.[web:12]
+The split-before-windowing rule is critical because sliding-window leakage can make fault diagnosis benchmarks look much better than they really are.
 
 ## Model Families
 
@@ -106,11 +106,11 @@ These models use raw normalized vibration windows:
 - LSTM / GRU baseline
 - Patch-based 1D Transformer
 
-This comparison is deliberate. A single-model project is much weaker than a benchmarked project with controlled preprocessing and shared evaluation logic.[web:12]
+This comparison is deliberate. A single-model project is much weaker than a benchmarked project with controlled preprocessing and shared evaluation logic.
 
 ## Main Improvement: Cross-Load Robustness
 
-The primary extension beyond the standard benchmark is cross-load robustness. Since the CWRU dataset contains different motor load conditions, the project tests whether models trained on some loads generalize to unseen loads.[web:20][web:7]
+The primary extension beyond the standard benchmark is cross-load robustness. Since the CWRU dataset contains different motor load conditions, the project tests whether models trained on some loads generalize to unseen loads.
 
 This is a better first improvement than adding arbitrary architectural complexity because it addresses a real weakness of many laboratory fault diagnosis pipelines: poor generalization outside the training condition.
 
@@ -217,7 +217,7 @@ Each model is evaluated with:
 - Training time
 - Inference latency
 
-Macro-F1 is included because multi-class fault diagnosis should not be judged only by top-line accuracy.[web:12]
+Macro-F1 is included because multi-class fault diagnosis should not be judged only by top-line accuracy.
 
 ## Results
 
@@ -351,4 +351,4 @@ Possible extensions after version 1:
 
 ## Acknowledgment
 
-This project uses the CWRU Bearing Data Center dataset provided by Case Western Reserve University.[web:17][web:20] The implementation is positioned as a benchmark-driven predictive maintenance project inspired by bearing fault diagnosis literature, not as an exact reproduction of a single paper.[web:12]
+This project uses the CWRU Bearing Data Center dataset provided by Case Western Reserve University.[web:17][web:20] The implementation is positioned as a benchmark-driven predictive maintenance project inspired by bearing fault diagnosis literature, not as an exact reproduction of a single paper.
